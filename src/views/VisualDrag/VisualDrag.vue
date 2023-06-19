@@ -57,7 +57,8 @@ function dragendEvent(e: any) {}
 
 // 在一个拖动过程中，释放鼠标键时触发此事件
 function releaseDrog(e: any) {
-    console.log('releaseDrog', e);
+    console.log('releaseDrog', e.target);
+    e.target.appendChild(source)
     // const copy = source.cloneNode(true)
 }
 

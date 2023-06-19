@@ -1,8 +1,13 @@
 import { createApp, toRaw } from "vue";
 import "./style.css";
 import App from "./App.vue";
+// 引入路由
+import router from  './router';
 // 引入pinia
 import { createPinia, PiniaPluginContext } from "pinia";
+// 引入ElementPlus
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
 
 type Options = {
   key?: string;
@@ -43,4 +48,4 @@ store.use(
   })
 ); // 使用插件
 
-createApp(App).use(store).mount("#app");
+createApp(App).use(router).use(store).use(ElementPlus).mount("#app");
