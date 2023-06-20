@@ -1,5 +1,5 @@
 <template>
-     <div :class="{ full: fullVal }">
+     <div class="box" :class="{ full: fullVal }">
           <el-button type="primary" @click="() => fullVal = !fullVal">切换大屏</el-button>
           <div id="GaodeMap" />
      </div>
@@ -28,10 +28,15 @@ function init() {
 init()
 </script>
    
-<style scoped>
+<style lang="scss" scoped>
+.box{
+     @include bfc
+}
 #GaodeMap {
      margin: 20px 0;
-     min-height: 60vh;
+     height: 100%;
+     overflow: hidden;
+     /* min-height: 60vh; */
      border: 1px solid #000;
 }
 

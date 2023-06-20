@@ -2,6 +2,13 @@
 </script>
 
 <template>
-  <RouterView></RouterView>
+  <div id="app">
+    <RouterView></RouterView>
+  </div>
 </template>
 
+<style lang="scss">
+#app {
+  @include bfc
+}
+</style>

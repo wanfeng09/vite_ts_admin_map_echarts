@@ -3,14 +3,23 @@
         <ul>
             <!-- <li v-for="item in list" :key="item.id">{{item.name}}</li> -->
             <!-- <li v-for="(item,index) in list" :key="index">{{item}}</li> -->
-            <li v-for="(item,index) in list.arr" :key="index">{{item}}</li>
+            <li v-for="(item, index) in list.arr" :key="index">{{ item }}</li>
         </ul>
         <button @click="add">add</button>
+        <div class="wan-test">
+            test
+            <div class="wan-test__inner">
+                inner
+                <div class="wan-test--success">
+                    success
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import { reactive,readonly } from "vue";
+import { reactive, readonly } from "vue";
 // type M = {
 //     id: number,
 //     name: String
@@ -32,7 +41,7 @@ import { reactive,readonly } from "vue";
 //         // list = res 页面没有渲染
 //         list.push(...res)
 //         console.log('list',list);
-        
+
 //     })
 // }
 
@@ -43,14 +52,24 @@ const list = reactive<{
     arr: []
 })
 // 模仿接口
-function add(){
+function add() {
     setTimeout(() => {
-        let res = ['AA','BB','CC']
+        let res = ['AA', 'BB', 'CC']
         list.arr = res
     })
 }
 </script>
 
 <style lang="scss" scoped>
+@include b(test) {
+    color: greenyellow;
 
-</style>>
+    @include e(inner) {
+        color: red;
+    }
+
+    @include m(success) {
+        background-color: green;
+    }
+}
+</style>
