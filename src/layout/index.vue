@@ -12,7 +12,7 @@
                 <el-scrollbar>
                     <el-menu default-active="/home" class="el-menu-vertical-demo" :collapse="isCollapse" router>
                         <template v-for="(item, index) in router" :key="index">
-                            <el-sub-menu :index="item.name" v-if="item.children?.length > 1 ">
+                            <el-sub-menu :index="item.name" v-if="item.children && item.children.length > 1 ">
                                 <template #title>
                                     <el-icon>
                                         <document />
@@ -23,13 +23,13 @@
                                     <el-menu-item :index="x.path" :router="{name: x.name}">{{ x.meta?.title }}</el-menu-item>
                                 </template>
                             </el-sub-menu>
-                            <el-menu-item :index="item.children[0].path" v-else>
+                            <el-menu-item :index="item.children ? item.children[0].path : index" v-else>
                                 <el-icon>
                                     <icon-menu />
                                     <!-- <location /> -->
                                     <!-- <setting /> -->
                                 </el-icon>
-                                <template #title>{{ item.children[0]?.meta?.title }}</template>
+                                <template #title>{{ item.children ? item.children[0]?.meta?.title : '' }}</template>
                             </el-menu-item>
                         </template>
                     </el-menu>
