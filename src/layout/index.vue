@@ -10,7 +10,7 @@
             </el-header>
             <el-container>
                 <el-scrollbar>
-                    <el-menu default-active="/home" class="el-menu-vertical-demo" :collapse="isCollapse" router>
+                    <el-menu :default-active="defaultActive" class="el-menu-vertical-demo" :collapse="isCollapse" router>
                         <template v-for="(item, index) in router" :key="index">
                             <el-sub-menu :index="item.name" v-if="item.children && item.children.length > 1 ">
                                 <template #title>
@@ -51,11 +51,12 @@ import {
     Location,
     Setting,
 } from '@element-plus/icons-vue'
-
+const defaultActive = useRouter().currentRoute.value.fullPath
 const isCollapse = ref(false)
 const router = computed(() => {
     return useRouter().options.routes
 })
+
 
 </script>
 

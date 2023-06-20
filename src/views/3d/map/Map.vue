@@ -1,15 +1,14 @@
 <template>
      <div :class="{ full: fullVal }">
           <el-button type="primary" @click="() => fullVal = !fullVal">切换大屏</el-button>
-          <div id="GaodeMap">
-          </div>
+          <div id="GaodeMap" />
      </div>
 </template>
 
 <script setup lang="ts">
 import AMapLoader from '@amap/amap-jsapi-loader';
 import { ref } from 'vue';
-let fullVal = ref(false)
+let fullVal = ref<Boolean>(false)
 function init() {
      AMapLoader.load({
           key: '0482bdf5597735a21bbb2b120df1ff03',
