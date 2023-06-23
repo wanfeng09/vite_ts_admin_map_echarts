@@ -1,7 +1,11 @@
 import { createRouter,createWebHashHistory,RouteRecordRaw } from 'vue-router'
 
 import Layout from '@/layout/index.vue'
-import baseStudy from '@/router/module/baseStudy.ts'
+
+//  modules
+import baseStudy from '@/router/module/baseStudy'
+import D3 from '@/router/module/3d'
+
 const routes: Array<RouteRecordRaw> = [
     {
         path: '/',
@@ -15,26 +19,17 @@ const routes: Array<RouteRecordRaw> = [
         }]
     },
     baseStudy,
+    D3,
     {
         path: '/drag',
         component: Layout,
         children: [{
             path: '/drag',
             name: 'Drag',
-            component: import('@/views/VisualDrag/VisualDrag.vue'),
+            component: () => import('@/views/VisualDrag/VisualDrag.vue'),
             meta: { title: '拖拽'},
         }]
-    },
-    {
-        path: '/map_3d',
-        component: Layout,
-        children: [{
-            path: '/map',
-            name: 'Map',
-            component: import('@/views/3d/map/Map.vue'),
-            meta: { title: '地图3d'},
-        }]
-    },
+    }
 ]
 
 const router = createRouter({

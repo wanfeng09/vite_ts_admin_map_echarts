@@ -66,6 +66,10 @@ const router = computed(() => {
     color: #fff;
 }
 
+.el-main{
+    padding: 0;
+}
+
 .el-aside {
     background-color: rgb(179 227 227);
 }
