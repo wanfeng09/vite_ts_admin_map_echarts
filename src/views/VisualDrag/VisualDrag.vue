@@ -44,7 +44,7 @@ let list = reactive<Drag[]>([
   },
 ]);
 
-let source;
+let source:HTMLBRElement;
 
 // 用户开始拖动元素时触发
 function dragstartEvent(e: any) {
@@ -54,6 +54,7 @@ function dragstartEvent(e: any) {
 }
 
 function dragendEvent(e: any) {}
+
 
 // 在一个拖动过程中，释放鼠标键时触发此事件
 function releaseDrog(e: any) {
