@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@amap/amap-jsapi-loader": "^1.0.1",
+    "@element-plus/icons-vue": "^2.1.0",
+    "axios": "^1.4.0",
     "echarts": "^5.4.2",
     "element-plus": "^2.3.6",
     "pinia": "^2.1.3",

@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-import { useNameStore,useActionNameStore } from '../../store/index'
+import { useNameStore,useActionNameStore } from '@/store/index'
 import { storeToRefs } from 'pinia'
 const useTest = useNameStore()
 const useActionName = useActionNameStore()

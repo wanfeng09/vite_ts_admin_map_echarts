@@ -1,4 +1,4 @@
-import { createRouter,createWebHashHistory,RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import { useActionNameStore } from '@/store/index'
 import { storeToRefs } from 'pinia'
 
@@ -19,11 +19,12 @@ const routes: Array<RouteRecordRaw> = [
         path: '/',
         component: Layout,
         redirect: '/home',
+        meta: { title: '首页', order: 1,icon: 'HomeFilled'},
         children: [{
             path: '/home',
             name: 'Home',
             component: () => import('@/views/home/index.vue'),
-            meta: { title: '首页'},
+            meta: { title: '首页', order: 1 },
         }]
     },
     baseStudy,
@@ -31,13 +32,25 @@ const routes: Array<RouteRecordRaw> = [
     {
         path: '/drag',
         component: Layout,
+        meta: { title: '拖拽', order: 2, role: 'admin',icon: 'StarFilled' },
         children: [{
             path: '/drag',
             name: 'Drag',
             component: () => import('@/views/VisualDrag/VisualDrag.vue'),
-            meta: { title: '拖拽'},
+            meta: { title: '拖拽', order: 1, role: 'admin' },
         }]
-    }
+    },
+    {
+        path: '/charts',
+        component: Layout,
+        meta: { title: '图表', order: 8, role: 'admin',icon: 'Histogram'},
+        children: [{
+            path: '/charts',
+            name: 'basecharts',
+            component: () => import('@/views/echarts/index.vue'),
+            meta: { title: '图表', order: 1, role: 'admin'  },
+        }]
+    },
 ]
 
 const router = createRouter({
@@ -45,16 +58,27 @@ const router = createRouter({
     routes
 })
 
-router.beforeEach((to,from,next) => {
-     // 获取userToken，根据业务场景可由localStorage也可由cookie中获取
+router.beforeEach((to, from, next) => {
+    // 获取userToken，根据业务场景可由localStorage也可由cookie中获取
     //  const user = useActionNameStore.get("userinfo")
-     // 路由守卫判断
-     const {name} = useActionNameStore()
-     if (to.name !== "Login" && !name) {
-         next({ name: "Login" });
-         return;
-     }
-     next();
+    // 路由守卫判断
+    const { name } = useActionNameStore()
+    if (to.name !== "Login" && !name) {
+        next({ name: "Login" });
+        return;
+    }
+    //  document.title = `${to.meta.title} | vue-manage-system`;
+    // const role = localStorage.getItem('ms_username');
+    // const permiss = usePermissStore();
+    // if (!role && to.path !== '/login') {
+    //     next('/login');
+    // } else if (to.meta.permiss && !permiss.key.includes(to.meta.permiss)) {
+    //     // 如果没有权限，则进入403
+    //     next('/403');
+    // } else {
+    //     next();
+    // }
+    next();
 })
 
 

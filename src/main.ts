@@ -1,5 +1,4 @@
 import { createApp, toRaw } from "vue";
-import "./style.css";
 import App from "./App.vue";
 // 引入路由
 import router from  './router';
@@ -8,6 +7,7 @@ import { createPinia, PiniaPluginContext } from "pinia";
 // 引入ElementPlus
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 
 type Options = {
   key?: string;
@@ -48,4 +48,14 @@ store.use(
   })
 ); // 使用插件
 
-createApp(App).use(router).use(store).use(ElementPlus).mount("#app");
+const app = createApp(App)
+app.use(router)
+app.use(store)
+app.use(ElementPlus)
+
+// 注册elementplus图标
+for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+  app.component(key, component);
+}
+
+app.mount("#app");

@@ -1,7 +1,19 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
 $namespace: 'wan' !default;
 $block-sel: '-' !default;
 $elem-sel: "__" !default;
 $mod-sel: '--' !default;
+
+.wan-contain{
+    padding: 20px;
+}
 
 @mixin bfc{
     height: 100%;
