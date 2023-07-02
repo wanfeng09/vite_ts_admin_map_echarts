@@ -1,7 +1,5 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
-import { useActionNameStore } from '@/store/index'
-import { storeToRefs } from 'pinia'
-
+import { useLoginName } from '@/store/index'
 
 import Layout from '@/layout/index.vue'
 
@@ -59,11 +57,9 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-    // 获取userToken，根据业务场景可由localStorage也可由cookie中获取
-    //  const user = useActionNameStore.get("userinfo")
     // 路由守卫判断
-    const { name } = useActionNameStore()
-    if (to.name !== "Login" && !name) {
+    const { username } = useLoginName()
+    if (to.name !== "Login" && !username) {
         next({ name: "Login" });
         return;
     }

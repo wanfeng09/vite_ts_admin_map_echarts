@@ -11,7 +11,7 @@ $block-sel: '-' !default;
 $elem-sel: "__" !default;
 $mod-sel: '--' !default;
 
-.wan-contain{
+.#{$namespace + '-contain'}{
     padding: 20px;
 }
 
@@ -23,6 +23,9 @@ $mod-sel: '--' !default;
 @mixin b($value){
     $B: #{$namespace + $block-sel + $value};
     .#{$B}{
+        @content;
+    }
+    ##{$B}{
         @content;
     }
 }

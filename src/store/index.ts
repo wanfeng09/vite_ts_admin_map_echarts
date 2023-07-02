@@ -60,3 +60,16 @@ export const useActionNameStore = defineStore(Names.ActionName, {
         }
     }
 })
+
+export const useLoginName = defineStore(Names.loginName,{
+   state: () => ({
+        username: '',
+        password: ''
+   }),
+   getters: {},
+   actions: {
+        setLoginName(val: string){
+            this.username = val
+        }
+   }
+})

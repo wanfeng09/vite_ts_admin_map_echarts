@@ -22,7 +22,7 @@ import { RegisterReq } from './user';
 import {reactive,ref} from 'vue'
 import { ElMessage, FormInstance,FormRules } from 'element-plus';
 import { useRouter } from 'vue-router'
-import { useActionNameStore } from '@/store/index'
+import { useLoginName } from '@/store/index'
 const registerParam:RegisterReq=reactive({
     username:"",
     password:"",
@@ -43,7 +43,7 @@ const submit=(formEl: FormInstance | undefined)=>{
     }
     formEl.validate(async (validate:boolean)=>{
         if(validate){
-            useActionNameStore().setUser(registerParam.username)
+            useLoginName().setLoginName(registerParam.username)
             router.push('/')
         }else{
             return false;

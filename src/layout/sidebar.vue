@@ -1,5 +1,5 @@
 <template>
-    <el-scrollbar>
+    <div class="wan-scroll">
         <el-menu background-color="#324157" text-color="#bfcbd9" active-text-color="#20a0ff" :default-active="defaultActive"
             class="el-menu-vertical-demo" :collapse="isCollapse" router>
             <template v-for="(item, index) in getRouter" :key="index">
@@ -18,11 +18,11 @@
                     <el-icon>
                         <component :is="item?.meta?.icon ?? 'WarnTriangleFilled'"></component>
                     </el-icon>
-                    <template #title>{{ item.children && item.children[0]?.meta?.title  }}</template>
+                    <template #title>{{ item.children && item.children[0]?.meta?.title }}</template>
                 </el-menu-item>
             </template>
         </el-menu>
-    </el-scrollbar>
+    </div>
 </template>
 
 
@@ -66,18 +66,24 @@ const getRouter = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-.el-menu{
+.el-menu {
     border: none;
 }
+
 .el-menu-vertical-demo:not(.el-menu--collapse) {
-  width: 200px;
+    width: 200px;
 }
 
-::v-deep .el-scrollbar__view{
+@include b(scroll) {
     height: 100%;
+    overflow: hidden auto;
+
     ul {
-    height: 100%;
-}
-}
+        height: 100%;
+    }
 
+    &::-webkit-scrollbar {
+        width: 0;
+    }
+}
 </style>

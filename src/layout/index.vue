@@ -16,7 +16,7 @@
                 <div>
                     <el-dropdown>
                         <el-button type="primary">
-                            {{ useActionNameStore().name }}<el-icon class="el-icon--right"><arrow-down /></el-icon>
+                            {{ useLoginName().username }}<el-icon class="el-icon--right"><arrow-down /></el-icon>
                         </el-button>
 
                         <template #dropdown>
@@ -41,12 +41,12 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-import { useActionNameStore } from '@/store/index';
+import { useLoginName } from '@/store/index';
 import sidebar from './sidebar.vue'
 const router = useRouter()
 const isCollapse = ref(false)
 function logout() {
-    useActionNameStore().setUser('')
+    useLoginName().setLoginName('')
     router.push('/login')
 }
 </script>
