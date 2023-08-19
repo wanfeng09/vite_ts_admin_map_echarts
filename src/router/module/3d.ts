@@ -14,5 +14,10 @@ export default {
         name: 'Three',
         component: () => import('@/views/3d/threejs/index.vue'),
         meta: { title: 'Three', order: 1, role: 'admin' }
+    }, {
+        path: '/openLayers',
+        name: 'OpenLayers',
+        component: () => import('@/views/3d/olLayers/index.vue'),
+        meta: { title: 'OpenLayers', order: 3, role: 'admin' }
     }]
 }

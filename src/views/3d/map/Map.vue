@@ -1,6 +1,6 @@
 <template>
      <div class="box" :class="{ full: fullVal }">
-          <el-button type="primary" @click="() => fullVal = !fullVal">切换大屏</el-button>
+          <el-button type="primary" @click="fullVal = !fullVal">切换大屏</el-button>
           <div id="GaodeMap" />
      </div>
 </template>
