@@ -39,14 +39,14 @@ const routes: Array<RouteRecordRaw> = [
         }]
     },
     {
-        path: '/charts',
+        path: '/screen',
         component: Layout,
-        meta: { title: '图表', order: 8, role: 'admin',icon: 'Histogram'},
+        meta: { title: '可视化数据', order: 8, role: 'admin',icon: 'Histogram'},
         children: [{
-            path: '/charts',
-            name: 'basecharts',
-            component: () => import('@/views/echarts/index.vue'),
-            meta: { title: '图表', order: 1, role: 'admin'  },
+            path: '/screen',
+            name: 'screen',
+            component: () => import('@/views/echarts/screen.vue'),
+            meta: { title: '可视化数据', order: 1, role: 'admin'  },
         }]
     },
 ]

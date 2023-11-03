@@ -29,5 +29,10 @@ export default {
         name: 'Directive',
         component: () => import('@/components/BaseStudy/Directive/index.vue'),
         meta: { title: 'Directive-props',order: 3, role: 'admin'}
+    },{
+        path: '/charts',
+        name: 'basecharts',
+        component: () => import('@/views/echarts/index.vue'),
+        meta: { title: '图表',order: 6, role: 'admin'}
     }]
 }
