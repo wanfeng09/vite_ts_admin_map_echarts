@@ -71,6 +71,11 @@ let LineChartRef = ref(); // 折线图
 let PieChartRef = ref(); // 饼图
 let LiquidFilltRef = ref(); // 水晶球
 
+// type objtype = {
+//       name: string,
+//       value: number
+//     }
+
 // echarts实例数据
 let echartsData = ref([
   {
@@ -189,8 +194,13 @@ const optionsDate = reactive([
   },
 ]);
 
+type instancetype = {
+  ref:string,
+  instance: any
+}
+
 // 定义实例【不能使用代理】
-let echartsInstance = [
+let echartsInstance:instancetype[] = [
   {
     ref: "BarLineChartRef",
     instance: null,
