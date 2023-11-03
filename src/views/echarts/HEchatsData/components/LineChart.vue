@@ -27,7 +27,8 @@ function epRef() {
 }
 function fetchData(mychart: echarts.ECharts, data:{
   x: string[],
-  y: string[]
+  y: string[],
+  y1: string[]
 }) {
   const option = {
     tooltip: {

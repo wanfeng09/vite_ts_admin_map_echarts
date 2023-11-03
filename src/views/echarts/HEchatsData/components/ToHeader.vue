@@ -19,7 +19,7 @@ import { useTime } from "@/utils/useTime";
 import * as echarts from "echarts";
 import imgtop from "@/assets/echarts_images/head_bg.png";
 let url = imgtop;
-let time = ref(null);
+let time = ref('');
 onMounted(() => {
   fetchData();
 });

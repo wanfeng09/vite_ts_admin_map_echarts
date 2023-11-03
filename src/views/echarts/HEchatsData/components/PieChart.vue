@@ -35,7 +35,7 @@ function epRef() {
   return echarts.init(document.getElementById(props.echartsId))
 }
 
-function fetchData(mychart: echarts.ECharts, data:obj[]) {
+function fetchData(mychart:echarts.ECharts, data:obj[]) {
   let total = 0
   data.map(ele => {
     total += ele.value
@@ -47,7 +47,7 @@ function fetchData(mychart: echarts.ECharts, data:obj[]) {
       show: true,
       trigger: 'item',
       // formatter: '{b} <br/>占比：{d}%', // 52 - 47
-      formatter: (params) => {
+      formatter: (params: { value: number; name: string; }) => {
         if(params.value === 0){
           return `${params.name}<br />${props.title}:0`
         }else{

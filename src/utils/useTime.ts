@@ -2,14 +2,14 @@
  * @description 获取本地时间
  */
 export const useTime = () => {
-  let year = 0 // 年份
-  let month = 0 // 月份
-  let week = '' // 星期几
-  let day = 0 // 天数
-  let hour = 0 // 小时
-  let minute = 0 // 分钟
-  let second = 0 // 秒
-  let nowTime = '' // 当前时间
+  let year:number = 0 // 年份
+  let month:number | string = 0 // 月份
+  let week:string = '' // 星期几
+  let day:number | string = 0 // 天数
+  let hour:number | string = 0 // 小时
+  let minute:number | string = 0 // 分钟
+  let second:number | string = 0 // 秒
+  let nowTime:string = '' // 当前时间
 
   // 更新时间
   const updateTime = () => {

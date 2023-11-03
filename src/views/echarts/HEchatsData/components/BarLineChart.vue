@@ -60,8 +60,8 @@ function fetchData(mychart:echarts.ECharts, data:{
       },
       position: function (point, params, dom, rect, size) {
         // 提示框位置
-        let x: string = "0";
-        let y: string = "0";
+        let x: number = 0
+        let y: number = 0
         //提示框定位
         if (point[0] + size.contentSize[0] < size.viewSize[0]) {
           x = point[0];
@@ -79,7 +79,7 @@ function fetchData(mychart:echarts.ECharts, data:{
         }
         return [x, y];
       },
-      formatter: (params) => {
+      formatter: (params: { value: number;name: string }[]) => {
         return `
             <div style="font-size: 14px;font-family: Source Han Sans CN-Medium;font-weight: 500;color: #FFFFFF;margin-bottom:12px;">${params[0].name}</div>
             <div style="font-size: 14px;font-family: Source Han Sans CN-Medium;font-weight: 500;color: #FFFFFF;margin-bottom:4px;">${legendData[0]}：${params[0].value}</div>
